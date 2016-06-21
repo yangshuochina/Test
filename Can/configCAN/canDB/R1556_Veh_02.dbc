@@ -1,0 +1,320 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: ExtDev Vcu Bcu CHR
+
+
+BO_ 2566869221 Bcu_CarCharB: 8 CHR
+ SG_ ErrChrCommunicate : 37|1@1+ (1,0) [0|0] ""  Bcu
+ SG_ ChrWorkSt : 36|1@1+ (1,0) [0|0] ""  Bcu
+ SG_ ChrInitSt : 35|1@1+ (1,0) [0|0] ""  Bcu
+ SG_ ErrChrU : 34|1@1+ (1,0) [0|0] ""  Bcu
+ SG_ ErrChrTemp : 33|1@1+ (1,0) [0|0] ""  Bcu
+ SG_ ErrChaCon : 32|1@1+ (1,0) [0|0] ""  Bcu
+ SG_ ChargerI : 23|16@0+ (0.1,0) [0|0] "A"  Bcu
+ SG_ ChargerU : 7|16@0+ (0.1,0) [0|0] "V"  Bcu
+
+BO_ 2550588916 Bcu_CarCharA: 8 Bcu
+ SG_ ChargerSt : 39|8@0+ (1,0) [0|255] ""  CHR
+ SG_ ReqICarCha : 23|16@0+ (0.1,0) [0|0] "A"  CHR
+ SG_ ReqUCarCha : 7|16@0+ (0.1,0) [0|0] "V"  CHR
+
+BO_ 2264967590 VcuToBms: 8 Vcu
+ SG_ StartEn : 0|1@1- (1,0) [0|1] ""  Bcu
+
+BO_ 2634065577 BmsToVcu_E: 8 Bcu
+ SG_ UcellMinNo : 40|8@1+ (1,0) [0|255] ""  Vcu
+ SG_ UcellMin1 : 24|16@1+ (0.001,0) [0|65535] "V"  Vcu
+ SG_ UcellMaxNo : 16|8@1+ (1,0) [0|255] ""  Vcu
+ SG_ UcellMax1 : 0|16@1+ (0.001,0) [0|65535] "V"  Vcu
+
+BO_ 2617288361 BmsToVcu_D: 8 Bcu
+ SG_ BmsSoftNO : 40|8@1+ (1,0) [0|10] ""  Vcu
+ SG_ ChaLeftTime : 24|16@1+ (1,0) [0|65535] "s"  Vcu
+ SG_ WorkSt : 16|3@1+ (1,0) [0|7] ""  Vcu
+ SG_ HeatManageSt : 8|3@1+ (1,0) [0|7] ""  Vcu
+ SG_ PreRlySt : 7|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ NegRlySt : 6|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ChaRlySt : 5|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ PosRlySt : 4|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ChaConSt : 0|2@1+ (1,0) [0|3] ""  Vcu
+
+BO_ 2415961769 BmsToVcu_C: 8 Bcu
+ SG_ AvgTemp : 56|8@1- (1,-50) [-50|200] "¡æ"  Vcu
+ SG_ TempMin1 : 48|8@1- (1,-50) [-50|200] "¡æ"  Vcu
+ SG_ TempMax1 : 40|8@1- (1,-50) [-50|200] "¡æ"  Vcu
+ SG_ SOC1 : 32|8@1+ (1,0) [0|100] "%"  Vcu
+ SG_ Ipack1 : 16|16@1- (0.1,-500) [-500|500] "A"  Vcu
+ SG_ Upack1 : 0|16@1+ (0.1,0) [0|1000] "V"  Vcu
+
+BO_ 2298521257 BmsTxVcu_B: 8 Bcu
+ SG_ GBChaTimes : 32|16@1+ (1,0) [0|65535] ""  Vcu
+ SG_ IChaLim : 16|16@1+ (0.1,-500) [-500|500] "A"  Vcu
+ SG_ IDchaLim1 : 0|16@1+ (0.1,-500) [-500|500] "A"  Vcu
+
+BO_ 2281744041 BcuToVcu_A: 8 Bcu
+ SG_ ErrFaultTotal : 56|4@1+ (1,0) [0|15] ""  Vcu
+ SG_ WarnFaultTotal : 52|4@1+ (1,0) [0|15] ""  Vcu
+ SG_ RptFaultTotal : 48|4@1+ (1,0) [0|15] ""  Vcu
+ SG_ ErrInterCom : 45|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrPreRly : 44|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrPosNegRly : 43|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrIso1 : 42|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrCharge : 41|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrTempMax1 : 40|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrUcellMax : 39|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrUcellMin : 38|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrSOCMin : 37|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrUPackMin1 : 35|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrTempMin1 : 24|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrUPackMax1 : 34|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrIDchaMax : 33|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrIChaMax : 32|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnTempMax1 : 25|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnUcellMin1 : 22|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnUcellMax1 : 23|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnSOCMin : 21|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnIso1 : 20|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnUPackMin1 : 19|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnUPackMax1 : 18|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnIDchaMax : 17|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnIChaMax : 16|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrUSensor : 14|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrLEM : 13|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrTempSensor : 12|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrCellBal : 10|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrRepairsSwitch : 11|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ RptTempMax : 9|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnTempMin1 : 8|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ RptUcellMax : 7|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ RptUcellMin : 6|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ RptSOCMin : 5|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ RptIso : 4|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ RptUPackMax : 2|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ RptIDchaMax : 1|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ RptIChaMax : 0|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ RptUPackMin : 3|1@1+ (1,0) [0|1] ""  Vcu
+
+BO_ 2018 BcuSD2: 8 Bcu
+ SG_ CarChaICP : 56|8@1- (2,-200) [-200|200] "A"  Vcu
+ SG_ BatMaxCp : 48|8@1+ (1,0) [0|255] "AH"  Vcu
+ SG_ Soh : 40|8@1+ (0.5,0) [0|100] "%"  Vcu
+ SG_ SocPack : 32|8@1+ (0.5,0) [0|100] "%"  Vcu
+ SG_ UcellSum : 16|8@1+ (3,0) [0|600] "V"  Vcu
+ SG_ Uact1 : 0|16@1+ (0.01,0) [0|600] "V"  Vcu
+ SG_ Uact2 : 24|8@1+ (3,0) [0|600] "V"  Vcu
+
+BO_ 2017 BcuSD1: 8 Bcu
+ SG_ WkSigCC2_1 : 52|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WkSigCC_1 : 51|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ UWkCarCha : 60|4@1+ (2,0) [0|24] "V"  Vcu
+ SG_ UWkKeyOn : 56|4@1+ (2,0) [0|24] "V"  Vcu
+ SG_ HeatSt : 50|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ HighFanSt : 49|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ LowFanSt : 48|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ StChaGun : 47|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ SetChaCtl : 46|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ DCDCSt : 45|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ AirconConSt : 44|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ PtcConSt : 43|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ CtctrStPrec : 42|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ CtctrStNeg : 41|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ CtctrStPos : 40|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ DTCCodeOutput : 32|8@1+ (1,0) [0|255] ""  Vcu
+ SG_ BmsErrLvl : 29|3@1+ (1,0) [0|8] ""  Vcu
+ SG_ ChaRSt : 24|5@1+ (1,0) [0|32] ""  Vcu
+ SG_ BatSt : 20|4@1+ (1,0) [0|15] ""  Vcu
+ SG_ SocCalcSt : 16|4@1+ (1,0) [0|15] ""  Vcu
+ SG_ ThmSt : 12|4@1+ (1,0) [0|15] ""  Vcu
+ SG_ BalSt : 8|4@1+ (1,0) [0|15] ""  Vcu
+ SG_ BcuSt : 0|4@1+ (1,0) [0|15] ""  Vcu
+ SG_ MccSt : 4|4@1+ (1,0) [0|15] ""  Vcu
+
+BO_ 2021 BcuSD4: 8 Bcu
+ SG_ ErrDcnctDurMax : 43|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ LoaErrFlag : 44|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrSoffDurMax : 42|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrCnctDurMax : 41|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrPrecDurMax : 40|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WkKeyStart : 37|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WkSigCC2 : 36|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WkSigCC : 35|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WkCarCha : 34|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WkSigCha : 33|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WkSig : 32|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrUCellMax : 1|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrUCellMin : 3|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnTempMax : 4|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnUCellMax : 0|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnUCellMin : 2|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrTempMax : 5|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrTempMin : 7|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrUPackMax : 9|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrUPackMin : 11|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnIso : 12|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnTempMin : 6|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnUPackMax : 8|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnUPackMin : 10|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrIActCha : 17|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrIActDcha : 15|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrIso : 13|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrUCellDiff : 19|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnIActCha : 16|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnIActDcha : 14|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnTempDiff : 20|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnUCellDiff : 18|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrTempDiff : 21|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrUCellLow : 22|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrUPackInter : 23|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnIActChaBack : 24|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrIActChaBack : 25|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrIActChaBGBC : 29|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ ErrIActChaCar : 27|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ TempSnsrErr : 30|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnIActChaBGBC : 28|1@1+ (1,0) [0|1] ""  Vcu
+ SG_ WarnIActChaCar : 26|1@1+ (1,0) [0|1] ""  Vcu
+
+BO_ 2023 BcuSD6: 8 Bcu
+ SG_ ChaAh : 32|16@1+ (0.005,0) [0|255] "AH"  Vcu
+ SG_ DchaAH : 16|16@1+ (0.005,0) [0|255] "AH"  Vcu
+ SG_ CcVol_1 : 8|8@1+ (1,0) [0|24] "V"  Vcu
+ SG_ Cc2Vol_1 : 0|8@1+ (1,0) [0|24] "V"  Vcu
+
+BO_ 2019 BcuSD3: 8 Bcu
+ SG_ Ipack : 48|16@1- (0.05,-400) [-400|400] "A"  Vcu
+ SG_ UcellMin : 16|16@1+ (0.001,0) [0|6] "V"  Vcu
+ SG_ UcellMax : 0|16@1+ (0.001,0) [0|6] "V"  Vcu
+ SG_ TempMax : 32|8@1- (1,-40) [-40|120] "¡æ"  Vcu
+ SG_ TempMin : 40|8@1- (1,-40) [-40|120] "¡æ"  Vcu
+
+BO_ 2022 BcuSD5: 8 Bcu
+ SG_ EEPROM_SOC : 56|8@1+ (0.5,0) [0|100] "%"  Vcu
+ SG_ IDchaLim : 48|8@1+ (5,0) [0|500] "A"  Vcu
+ SG_ IChLim : 40|8@1+ (5,0) [0|500] "A"  Vcu
+ SG_ TiBatOff : 32|8@1+ (1,0) [0|255] "H"  Vcu
+ SG_ TempMinIndex : 24|8@1+ (1,0) [0|32] ""  Vcu
+ SG_ TempMaxIndex : 16|8@1+ (1,0) [0|32] ""  Vcu
+ SG_ UcellMaxIndex : 0|8@1+ (1,0) [0|255] ""  Vcu
+ SG_ UcellMinIndex : 8|8@1+ (1,0) [0|255] ""  Vcu
+
+BO_ 2020 BcuTime: 8 Bcu
+ SG_ tMinute : 8|8@1+ (1,0) [0|0] ""  Vcu
+ SG_ tMonth : 40|8@1+ (1,0) [0|0] ""  Vcu
+ SG_ tSecond : 0|8@1+ (1,0) [0|0] ""  Vcu
+ SG_ tWeek : 32|8@1+ (1,0) [0|0] ""  Vcu
+ SG_ tYear : 48|8@1+ (1,0) [0|0] ""  Vcu
+ SG_ tDay : 24|8@1+ (1,0) [0|0] ""  Vcu
+ SG_ tHour : 16|8@1+ (1,0) [0|0] ""  Vcu
+
+BO_ 513 RxXCP: 8 ExtDev
+ SG_ XCP_RxData : 0|64@1+ (1,0) [0|0] ""  Bcu
+
+BO_ 2016 UdsRx: 8 ExtDev
+ SG_ UdsRx_D7 : 56|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ UdsRx_D6 : 48|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ UdsRx_D5 : 40|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ UdsRx_D4 : 32|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ UdsRx_D3 : 24|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ UdsRx_D2 : 16|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ UdsRx_D1 : 8|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ UdsRx_Cmd : 0|8@1+ (1,0) [0|0] ""  Bcu
+
+BO_ 2024 UdsTx: 8 Bcu
+ SG_ UdsTx_D7 : 56|8@1+ (1,0) [0|0] ""  ExtDev
+ SG_ UdsTx_D6 : 48|8@1+ (1,0) [0|0] ""  ExtDev
+ SG_ UdsTx_D5 : 40|8@1+ (1,0) [0|0] ""  ExtDev
+ SG_ UdsTx_D4 : 32|8@1+ (1,0) [0|0] ""  ExtDev
+ SG_ UdsTx_D3 : 24|8@1+ (1,0) [0|0] ""  ExtDev
+ SG_ UdsTx_D2 : 16|8@1+ (1,0) [0|0] ""  ExtDev
+ SG_ UdsTx_D1 : 8|8@1+ (1,0) [0|0] ""  ExtDev
+ SG_ UdsTx_Cmd : 0|8@1+ (1,0) [0|0] ""  ExtDev
+
+BO_ 512 TxXCP: 8 Bcu
+ SG_ XCP_TxData : 0|64@1+ (1,0) [0|0] ""  ExtDev
+
+
+
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 0;
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType";
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","not_used","not_used","not_used","not_used","Cyclic","not_used","IfActive","NoMsgSendType";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 0;
+BA_DEF_ BO_  "GenMsgILSupport" ENUM  "No","Yes";
+BA_DEF_ BU_  "ILUsed" ENUM  "No","Yes";
+BA_DEF_  "Manufacturer" STRING ;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_REL_ BU_SG_REL_  "GenSigTimeoutTime" INT 0 2000;
+BA_DEF_REL_ BU_SG_REL_  "GenSigTimeoutMsg" HEX 0 2047;
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigSendType" "NoSigSendType";
+BA_DEF_DEF_  "GenMsgSendType" "NoMsgSendType";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgILSupport" "No";
+BA_DEF_DEF_  "ILUsed" "No";
+BA_DEF_DEF_  "Manufacturer" "Vector";
+BA_DEF_DEF_  "BusType" "CAN";
+BA_DEF_DEF_REL_ "GenSigTimeoutTime" 0;
+BA_DEF_DEF_REL_ "GenSigTimeoutMsg" 0;
+BA_ "ILUsed" BU_ Bcu 1;
+BA_ "GenMsgILSupport" BO_ 2566869221 1;
+BA_ "GenMsgILSupport" BO_ 2550588916 1;
+BA_ "GenMsgILSupport" BO_ 2264967590 1;
+BA_ "GenMsgILSupport" BO_ 2634065577 1;
+BA_ "GenMsgILSupport" BO_ 2617288361 1;
+BA_ "GenMsgILSupport" BO_ 2415961769 1;
+BA_ "GenMsgILSupport" BO_ 2298521257 1;
+BA_ "GenMsgILSupport" BO_ 2281744041 1;
+BA_ "GenMsgILSupport" BO_ 2018 1;
+BA_ "GenMsgILSupport" BO_ 2017 1;
+BA_ "GenMsgILSupport" BO_ 2021 1;
+BA_ "GenMsgILSupport" BO_ 2023 1;
+BA_ "GenMsgILSupport" BO_ 2019 1;
+BA_ "GenMsgILSupport" BO_ 2022 1;
+BA_ "GenMsgILSupport" BO_ 2020 1;
+BA_ "GenMsgILSupport" BO_ 513 1;
+BA_ "GenMsgILSupport" BO_ 2016 1;
+BA_ "GenMsgILSupport" BO_ 2024 1;
+BA_ "GenMsgILSupport" BO_ 512 1;
+BA_ "GenSigSendType" SG_ 513 XCP_RxData 0;
+BA_ "GenSigSendType" SG_ 512 XCP_TxData 0;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 2566869221 ErrChrCommunicate 2000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 2566869221 ChrWorkSt 2000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 2566869221 ChrInitSt 2000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 2566869221 ErrChrU 2000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 2566869221 ErrChrTemp 2000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 2566869221 ErrChaCon 2000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 2566869221 ChargerI 2000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 2566869221 ChargerU 2000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 2264967590 StartEn 200;
+

@@ -1,0 +1,682 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: ExtDev Rtc Mc60A Mc33B Bcu Hcu
+VAL_TABLE_ Handle_Info 15 "Invalided" 14 "Reserved" 13 "Reserved" 12 "Reserved" 11 "Reserved" 10 "Reserved" 9 "Reserved" 8 "Reserved" 7 "Mid" 6 "Reserved" 5 "M" 4 "Reserved" 3 "D" 2 "N" 1 "R" 0 "P" ;
+VAL_TABLE_ StayAwkResn 99 "T[active_min]" 31 "stay-awake reason (ECU specific)" 30 "BCM2 actuator is active" 29 "BCM1 actuator is active" 28 "Driver seat controller actuator" 27 "Front right door actuator" 26 "Rear right door lock DRF signal" 25 "Front right door lock DRF signal" 24 "Front left door actuator" 23 "Rear left door lock DRF signal" 22 "Front left door lock DRF signal" 3 "Reserved" 2 "diagnostic with KL15-off" 1 "KL15-on (highest priority)" 0 "ready to sleep" ;
+VAL_TABLE_ PWRState 3 "Description for the value '0x3'" 2 "sleep" 1 "local ECU function" 0 "standby" ;
+VAL_TABLE_ NM_WKUpResn 27 "local wake-up (ECU specific)" 26 "Ignition remind switch is active" 25 "Remote open luggage is active" 24 "Remote lock is active" 23 "Remote unlock is active" 22 "Reserved" 21 "Reserved" 20 "Reserved" 19 "Hazard switch is active" 18 "Reserved" 17 "Reserved" 16 "Reserved" 15 "Reserved" 14 "Reserved" 13 "Reserved" 12 "Reserved" 11 "Reserved" 10 "Reserved" 9 "Reserved" 8 "Reserved" 7 "Reserved" 6 "Reserved" 5 "Reserved" 4 "Reserved" 3 "Reserved" 2 "KL75on" 1 "KL15on" 0 "CAN Wake up" ;
+
+
+BO_ 2027 BcuCHAInfo2: 8 Bcu
+ SG_ CellVolDiff : 0|16@1+ (0.001,0) [0|0] "V"  ExtDev
+
+BO_ 2026 BcuCHAInfo1: 8 Bcu
+ SG_ MinCellVolNo : 40|8@1+ (1,0) [0|0] ""  ExtDev
+ SG_ MinCellV : 16|16@1+ (0.001,0) [0|0] "V"  ExtDev
+ SG_ MaxCellVolNo : 32|8@1+ (1,0) [0|0] ""  ExtDev
+ SG_ MaxCellV : 0|16@1+ (0.001,0) [0|0] "V"  ExtDev
+ SG_ AveCellVol : 48|16@1+ (0.001,0) [0|0] "V"  ExtDev
+
+BO_ 2024 UdsInterTx: 8 Rtc
+ SG_ UdsTxD7 : 56|8@1+ (1,0) [0|0] ""  Bcu,ExtDev
+ SG_ UdsTxD6 : 48|8@1+ (1,0) [0|0] ""  Bcu,ExtDev
+ SG_ UdsTxD5 : 40|8@1+ (1,0) [0|0] ""  Bcu,ExtDev
+ SG_ UdsTxD4 : 32|8@1+ (1,0) [0|0] ""  Bcu,ExtDev
+ SG_ UdsTxD3 : 24|8@1+ (1,0) [0|0] ""  Bcu,ExtDev
+ SG_ UdsTxD2 : 16|8@1+ (1,0) [0|0] ""  Bcu,ExtDev
+ SG_ UdsTxD1 : 8|8@1+ (1,0) [0|0] ""  Bcu,ExtDev
+ SG_ UdsTxCmd : 0|8@1+ (1,0) [0|0] ""  Bcu,ExtDev
+
+BO_ 2016 UdsInterRx: 8 ExtDev
+ SG_ UdsRxD7 : 56|8@1+ (1,0) [0|0] ""  Rtc
+ SG_ UdsRxD6 : 48|8@1+ (1,0) [0|0] ""  Rtc
+ SG_ UdsRxD5 : 40|8@1+ (1,0) [0|0] ""  Rtc
+ SG_ UdsRxD4 : 32|8@1+ (1,0) [0|0] ""  Rtc
+ SG_ UdsRxD3 : 24|8@1+ (1,0) [0|0] ""  Rtc
+ SG_ UdsRxD2 : 16|8@1+ (1,0) [0|0] ""  Rtc
+ SG_ UdsRxD1 : 8|8@1+ (1,0) [0|0] ""  Rtc
+ SG_ UdsRxCmd : 0|8@1+ (1,0) [0|0] ""  Rtc
+
+BO_ 130 BcuSyc100msMsg: 8 Bcu
+ SG_ SycD4 : 32|32@1- (1,0) [0|0] ""  Rtc,Mc60A,Mc33B,Hcu
+ SG_ SycD3 : 24|8@1+ (1,0) [0|0] ""  Rtc,Mc60A,Mc33B,Hcu
+ SG_ SycD2 : 16|8@1+ (1,0) [0|0] ""  Rtc,Mc60A,Mc33B,Hcu
+ SG_ SycD1 : 8|8@1+ (1,0) [0|0] ""  Rtc,Mc60A,Mc33B,Hcu
+ SG_ SycD0 : 0|8@1+ (1,0) [0|0] ""  Rtc,Mc60A,Mc33B,Hcu
+
+BO_ 772 RtcTxMulReq: 8 Rtc
+ SG_ RtcTxMulReqD4Sig : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RtcTxMulD2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RtcTxMulReqPGN : 40|24@1+ (1,0) [0|0] ""  Bcu
+ SG_ RtcTxMulReqPackSum : 24|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ RtcTxMulReqByteSum : 8|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ RtcTxMulReqCmd : 0|8@1+ (1,0) [0|0] ""  Bcu
+
+BO_ 774 RtcTime: 8 Rtc
+ SG_ RtcHour : 16|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ RtcYear : 48|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ RtcWeek : 32|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ RtcSec : 0|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ RtcMonth : 40|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ RtcMin : 8|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ RtcDay : 24|8@1+ (1,0) [0|0] ""  Bcu
+
+BO_ 770 RtcRxMulReq: 8 Bcu
+ SG_ RtcTxMulReqD4Sig : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RtcRxMulReqPGN : 40|24@1+ (1,0) [0|0] ""  Rtc
+ SG_ RtcRxMulReqCmd : 0|8@1+ (1,0) [0|0] ""  Rtc
+ SG_ RtcRxMulPackSum : 24|8@1+ (1,0) [0|0] ""  Rtc
+ SG_ RtcRxMulByteSum : 8|16@1+ (1,0) [0|0] ""  Rtc
+
+BO_ 771 RtcRxMulData: 8 Bcu
+ SG_ RtcRxMulD7 : 56|8@1+ (1,0) [0|0] ""  Rtc
+ SG_ RtcRxMulD6 : 48|8@1+ (1,0) [0|0] ""  Rtc
+ SG_ RtcRxMulD5 : 40|8@1+ (1,0) [0|0] ""  Rtc
+ SG_ RtcRxMulD4 : 32|8@1+ (1,0) [0|0] ""  Rtc
+ SG_ RtcRxMulD3 : 24|8@1+ (1,0) [0|0] ""  Rtc
+ SG_ RtcRxMulD2 : 16|8@1+ (1,0) [0|0] ""  Rtc
+ SG_ RtcRxMulD1 : 8|8@1+ (1,0) [0|0] ""  Rtc
+ SG_ RtcRxMulNo : 0|8@1+ (1,0) [0|0] ""  Rtc
+
+BO_ 769 RtcTxMsg: 8 Rtc
+ SG_ RtcTxCmd : 56|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ RtcTxD6 : 48|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ RtcTxD5 : 40|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ RtcTxD4 : 32|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ RtcTxD3 : 24|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ RtcTxD2 : 16|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ RtcTxD1 : 8|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ RtcTxD0 : 0|8@1+ (1,0) [0|0] ""  Bcu
+
+BO_ 768 RtcRxMsg: 8 Bcu
+ SG_ RtcRxCmd : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RtcRxD6 : 48|8@1+ (1,0) [0|0] ""  Rtc
+ SG_ RtcRxD5 : 40|8@1+ (1,0) [0|0] ""  Rtc
+ SG_ RtcRxD4 : 32|8@1+ (1,0) [0|0] ""  Rtc
+ SG_ RtcRxD3 : 24|8@1+ (1,0) [0|0] ""  Rtc
+ SG_ RtcRxD2 : 16|8@1+ (1,0) [0|0] ""  Rtc
+ SG_ RtcRxD1 : 8|8@1+ (1,0) [0|0] ""  Rtc
+ SG_ RtcRxD0 : 0|8@1+ (1,0) [0|0] ""  Rtc
+
+BO_ 773 RtcIo: 8 Rtc
+ SG_ RtcSt : 40|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ PwrVol : 32|8@1+ (1,0) [0|0] "V"  Bcu
+ SG_ GprsVol : 24|8@1+ (1,0) [0|0] "V"  Bcu
+ SG_ CcVol : 16|8@1+ (1,0) [0|0] "V"  Bcu
+ SG_ CcPwmDt : 8|8@1+ (1,0) [0|0] "%"  Bcu
+ SG_ Cc2Vol : 0|8@1+ (1,0) [0|0] "V"  Bcu
+
+BO_ 525 Mc60AState: 8 Mc60A
+ SG_ Mc60AErrCounter : 56|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ Mc60AErrCode : 48|4@1+ (1,0) [0|0] ""  Bcu
+ SG_ Mc60ASt : 52|4@1+ (1,0) [0|0] ""  Bcu
+ SG_ Mc60ACanErrDirect : 40|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ Mc60ACanResets : 32|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ Mc60ARxErrCnt : 24|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ Mc60ATxErrCnt : 16|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ Mc60AAveCellV : 0|16@1+ (0.0015,0) [0|0] "V"  Bcu
+
+BO_ 557 Mc33BState: 8 Mc33B
+ SG_ Mc33BErrCounter : 56|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ Mc33BErrCode : 48|4@1+ (1,0) [0|0] ""  Bcu
+ SG_ Mc33BSt : 52|4@1+ (1,0) [0|0] ""  Bcu
+ SG_ Mc33BCanErrDirect : 40|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ Mc33BCanResets : 32|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ Mc33BRxErrCnt : 24|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ Mc33BTxErrCnt : 16|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ Mc33BAveCellV : 0|16@1+ (0.0015,0) [0|0] "v"  Bcu
+
+BO_ 146 McInit: 8 Mc60A
+ SG_ McInit_Data6 : 56|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ McInit_Data5 : 48|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ McInit_Data4 : 40|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ McInit_Data3 : 32|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ McInit_Data2 : 24|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ McInit_Data1 : 16|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ McInit_McNo : 8|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ McInit_Cmd : 0|8@1+ (1,0) [0|0] ""  Bcu
+
+BO_ 144 BcuInit: 8 Bcu
+ SG_ BcuInit_D6 : 56|8@1+ (1,0) [0|0] ""  Mc60A,Mc33B
+ SG_ BcuInit_D5 : 48|8@1+ (1,0) [0|0] ""  Mc60A,Mc33B
+ SG_ BcuInit_D4 : 40|8@1+ (1,0) [0|0] ""  Mc60A,Mc33B
+ SG_ BcuInit_D3 : 32|8@1+ (1,0) [0|0] ""  Mc60A,Mc33B
+ SG_ BcuInit_D2 : 24|8@1+ (1,0) [0|0] ""  Mc60A,Mc33B
+ SG_ BcuInit_D1 : 16|8@1+ (1,0) [0|0] ""  Mc60A,Mc33B
+ SG_ BcuInit_McNo : 8|8@1+ (1,0) [0|0] ""  Mc60A,Mc33B
+ SG_ BcuInit_Cmd : 0|8@1+ (1,0) [0|0] ""  Mc60A,Mc33B
+
+BO_ 523 Mc60ABalState_0: 8 Mc60A
+ SG_ Mc60AStatLtc4 : 48|16@1+ (1,0) [0|0] ""  Bcu
+ SG_ Mc60AStatLtc3 : 32|16@1+ (1,0) [0|0] ""  Bcu
+ SG_ Mc60AStatLtc2 : 16|16@1+ (1,0) [0|0] ""  Bcu
+ SG_ Mc60AStatLtc1 : 0|16@1+ (1,0) [0|0] ""  Bcu
+
+BO_ 524 Mc60ABalState_1: 8 Mc60A
+ SG_ Mc60AStatLtc5 : 0|16@1+ (1,0) [0|0] ""  Bcu
+
+BO_ 555 Mc33BBalState_0: 8 Mc33B
+ SG_ Mc33BStatLtc3 : 32|16@1+ (1,0) [0|0] ""  Bcu
+ SG_ Mc33BStatLtc2 : 16|16@1+ (1,0) [0|0] ""  Bcu
+ SG_ Mc33BStatLtc1 : 0|16@1+ (1,0) [0|0] ""  Bcu
+
+BO_ 1314 HcuData3: 8 Hcu
+ SG_ HV_Uact2_5 : 48|16@1+ (0.01,0) [0|655.35] "V"  Bcu
+ SG_ HV_Uact2_4 : 32|16@1+ (0.01,0) [0|655.35] "V"  Bcu
+ SG_ HV_Uact2_3 : 16|16@1+ (0.01,0) [0|655.35] "V"  Bcu
+ SG_ HV_Uact2_2 : 0|16@1+ (0.01,0) [0|655.35] "V"  Bcu
+
+BO_ 512 BcuBalCmdMc60A_0: 8 Bcu
+ SG_ Mc60ACtrlLtc4 : 48|16@1+ (1,0) [0|0] ""  Mc60A
+ SG_ Mc60ACtrlLtc3 : 32|16@1+ (1,0) [0|0] ""  Mc60A
+ SG_ Mc60ACtrlLtc2 : 16|16@1+ (1,0) [0|0] ""  Mc60A
+ SG_ Mc60ACtrlLtc1 : 0|16@1+ (1,0) [0|0] ""  Mc60A
+
+BO_ 513 BcuBalCmdMc60A_1: 8 Bcu
+ SG_ Mc60ACtrlLtc5 : 0|16@1+ (1,0) [0|0] ""  Mc60A
+
+BO_ 544 BcuBalCmdMc33B_0: 8 Bcu
+ SG_ Mc33BCtrlLtc3 : 32|16@1+ (1,0) [0|0] ""  Mc33B
+ SG_ Mc33BCtrlLtc2 : 16|16@1+ (1,0) [0|0] ""  Mc33B
+ SG_ Mc33BCtrlLtc1 : 0|16@1+ (1,0) [0|0] ""  Mc33B
+
+BO_ 303 Mc60AData15: 8 Mc60A
+ SG_ Mc60ATemp4 : 24|8@1- (1,0) [-128|127] "¡æ"  Bcu
+ SG_ Mc60ATemp3 : 16|8@1- (1,0) [-128|127] "¡æ"  Bcu
+ SG_ Mc60ATemp2 : 8|8@1- (1,0) [-128|127] "¡æ"  Bcu
+ SG_ Mc60ATemp1 : 0|8@1- (1,0) [-128|127] "¡æ"  Bcu
+
+BO_ 271 Mc33BData15: 8 Mc33B
+ SG_ Mc33BTemp4 : 24|8@1- (1,0) [-128|127] "¡æ"  Bcu
+ SG_ Mc33BTemp3 : 16|8@1- (1,0) [-128|127] "¡æ"  Bcu
+ SG_ Mc33BTemp2 : 8|8@1- (1,0) [-128|127] "¡æ"  Bcu
+ SG_ Mc33BTemp1 : 0|8@1- (1,0) [-128|127] "¡æ"  Bcu
+
+BO_ 1313 HcuData1: 8 Hcu
+ SG_ IsoHvFlg : 16|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ IsoRst : 0|16@1+ (1,0) [0|0] "Ohm/V"  Bcu
+
+BO_ 1312 HcuData0: 8 Hcu
+ SG_ HcuSt : 48|8@1+ (1,0) [0|0] ""  Bcu
+ SG_ HV_Uact1 : 0|16@1+ (0.01,0) [0|655.35] "V"  Bcu
+ SG_ HV_Uact2 : 16|16@1+ (0.01,0) [0|655.35] "V"  Bcu
+ SG_ Ipack : 32|16@1- (0.01,0) [-327.68|327.67] "A"  Bcu
+
+BO_ 270 Mc60AData14: 8 Mc60A
+ SG_ Ucell59 : 48|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell58 : 32|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+ SG_ Ucell57 : 16|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell56 : 0|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+
+BO_ 269 Mc60AData13: 8 Mc60A
+ SG_ Ucell55 : 48|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell54 : 32|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell53 : 16|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+ SG_ Ucell52 : 0|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+
+BO_ 268 Mc60AData12: 8 Mc60A
+ SG_ Ucell51 : 48|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell50 : 32|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+ SG_ Ucell49 : 16|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell48 : 0|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+
+BO_ 267 Mc60AData11: 8 Mc60A
+ SG_ Ucell47 : 48|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell46 : 32|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+ SG_ Ucell45 : 16|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell44 : 0|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+
+BO_ 266 Mc60AData10: 8 Mc60A
+ SG_ Ucell43 : 48|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell42 : 32|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+ SG_ Ucell41 : 16|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell40 : 0|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+
+BO_ 265 Mc60AData09: 8 Mc60A
+ SG_ Ucell39 : 48|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+ SG_ Ucell38 : 32|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell37 : 16|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell36 : 0|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+
+BO_ 264 Mc60AData08: 8 Mc60A
+ SG_ Ucell35 : 48|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+ SG_ Ucell34 : 32|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell33 : 16|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell32 : 0|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+
+BO_ 263 Mc60AData07: 8 Mc60A
+ SG_ Ucell31 : 48|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+ SG_ Ucell30 : 32|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell29 : 16|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell28 : 0|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+
+BO_ 262 Mc60AData06: 8 Mc60A
+ SG_ Ucell27 : 48|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell26 : 32|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell25 : 16|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell24 : 0|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+
+BO_ 261 Mc60AData05: 8 Mc60A
+ SG_ Ucell23 : 48|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell22 : 32|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell21 : 16|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell20 : 0|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+
+BO_ 260 Mc60AData04: 8 Mc60A
+ SG_ Ucell19 : 48|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell18 : 32|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell17 : 16|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+ SG_ Ucell16 : 0|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+
+BO_ 259 Mc60AData03: 8 Mc60A
+ SG_ Ucell15 : 48|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell14 : 32|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell13 : 16|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+ SG_ Ucell12 : 0|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+
+BO_ 258 Mc60AData02: 8 Mc60A
+ SG_ Ucell11 : 48|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell10 : 32|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell09 : 16|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+ SG_ Ucell08 : 0|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+
+BO_ 257 Mc60AData01: 8 Mc60A
+ SG_ Ucell07 : 48|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell06 : 32|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+ SG_ Ucell05 : 16|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell04 : 0|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+
+BO_ 256 Mc60AData00: 8 Mc60A
+ SG_ Ucell03 : 48|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell02 : 32|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+ SG_ Ucell01 : 16|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell00 : 0|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+
+BO_ 296 Mc33BData08: 2 Mc33B
+ SG_ Ucell92 : 0|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+
+BO_ 295 Mc33BData07: 8 Mc33B
+ SG_ Ucell91 : 48|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+ SG_ Ucell90 : 32|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell89 : 16|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell88 : 0|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+
+BO_ 294 Mc33BData06: 8 Mc33B
+ SG_ Ucell87 : 48|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+ SG_ Ucell86 : 32|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell85 : 16|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell84 : 0|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+
+BO_ 293 Mc33BData05: 8 Mc33B
+ SG_ Ucell83 : 48|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+ SG_ Ucell82 : 32|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell81 : 16|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell80 : 0|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+
+BO_ 292 Mc33BData04: 8 Mc33B
+ SG_ Ucell79 : 48|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell78 : 32|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell77 : 16|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell76 : 0|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+
+BO_ 291 Mc33BData03: 8 Mc33B
+ SG_ Ucell75 : 48|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell74 : 32|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell73 : 16|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell72 : 0|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+
+BO_ 290 Mc33BData02: 8 Mc33B
+ SG_ Ucell71 : 48|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell70 : 32|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell69 : 16|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+ SG_ Ucell68 : 0|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+
+BO_ 289 Mc33BData01: 8 Mc33B
+ SG_ Ucell67 : 48|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell66 : 32|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell65 : 16|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+ SG_ Ucell64 : 0|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+
+BO_ 288 Mc33BData00: 8 Mc33B
+ SG_ Ucell63 : 48|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell62 : 32|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+ SG_ Ucell61 : 16|16@1+ (0.0015,0) [0|4.99967] "V"  Bcu
+ SG_ Ucell60 : 0|16@1+ (0.0015,0) [0|4.99966515] "V"  Bcu
+
+BO_TX_BU_ 2024 : ExtDev,Hcu,Mc33B,Mc60A,Rtc;
+BO_TX_BU_ 2016 : Bcu,ExtDev;
+BO_TX_BU_ 146 : Mc33B,Mc60A;
+
+
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 0;
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType";
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","not_used","not_used","not_used","not_used","Cyclic","not_used","IfActive","NoMsgSendType";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 0;
+BA_DEF_ BO_  "GenMsgILSupport" ENUM  "No","Yes";
+BA_DEF_ BU_  "ILUsed" ENUM  "No","Yes";
+BA_DEF_  "Manufacturer" STRING ;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_REL_ BU_SG_REL_  "GenSigTimeoutTime" INT 0 2000;
+BA_DEF_REL_ BU_SG_REL_  "GenSigTimeoutMsg" HEX 0 2047;
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "GenMsgSendType" "NoMsgSendType";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgILSupport" "No";
+BA_DEF_DEF_  "ILUsed" "No";
+BA_DEF_DEF_  "Manufacturer" "Vector";
+BA_DEF_DEF_  "BusType" "CAN";
+BA_DEF_DEF_REL_ "GenSigTimeoutTime" 0;
+BA_DEF_DEF_REL_ "GenSigTimeoutMsg" 0;
+BA_ "ILUsed" BU_ Bcu 1;
+BA_ "GenMsgILSupport" BO_ 2027 1;
+BA_ "GenMsgILSupport" BO_ 2026 1;
+BA_ "GenMsgILSupport" BO_ 2024 1;
+BA_ "GenMsgILSupport" BO_ 2016 1;
+BA_ "GenMsgILSupport" BO_ 130 1;
+BA_ "GenMsgILSupport" BO_ 772 1;
+BA_ "GenMsgILSupport" BO_ 774 1;
+BA_ "GenMsgILSupport" BO_ 770 1;
+BA_ "GenMsgILSupport" BO_ 771 1;
+BA_ "GenMsgILSupport" BO_ 769 1;
+BA_ "GenMsgILSupport" BO_ 768 1;
+BA_ "GenMsgILSupport" BO_ 773 1;
+BA_ "GenMsgILSupport" BO_ 525 1;
+BA_ "GenMsgILSupport" BO_ 557 1;
+BA_ "GenMsgILSupport" BO_ 146 1;
+BA_ "GenMsgILSupport" BO_ 144 1;
+BA_ "GenMsgILSupport" BO_ 523 1;
+BA_ "GenMsgILSupport" BO_ 524 1;
+BA_ "GenMsgILSupport" BO_ 555 1;
+BA_ "GenMsgILSupport" BO_ 1314 1;
+BA_ "GenMsgILSupport" BO_ 512 1;
+BA_ "GenMsgILSupport" BO_ 513 1;
+BA_ "GenMsgILSupport" BO_ 544 1;
+BA_ "GenMsgILSupport" BO_ 303 1;
+BA_ "GenMsgILSupport" BO_ 271 1;
+BA_ "GenMsgILSupport" BO_ 1313 1;
+BA_ "GenMsgILSupport" BO_ 1312 1;
+BA_ "GenMsgILSupport" BO_ 270 1;
+BA_ "GenMsgILSupport" BO_ 269 1;
+BA_ "GenMsgILSupport" BO_ 268 1;
+BA_ "GenMsgILSupport" BO_ 267 1;
+BA_ "GenMsgILSupport" BO_ 266 1;
+BA_ "GenMsgILSupport" BO_ 265 1;
+BA_ "GenMsgILSupport" BO_ 264 1;
+BA_ "GenMsgILSupport" BO_ 263 1;
+BA_ "GenMsgILSupport" BO_ 262 1;
+BA_ "GenMsgILSupport" BO_ 261 1;
+BA_ "GenMsgILSupport" BO_ 260 1;
+BA_ "GenMsgILSupport" BO_ 259 1;
+BA_ "GenMsgILSupport" BO_ 258 1;
+BA_ "GenMsgILSupport" BO_ 257 1;
+BA_ "GenMsgILSupport" BO_ 256 1;
+BA_ "GenMsgILSupport" BO_ 296 1;
+BA_ "GenMsgILSupport" BO_ 295 1;
+BA_ "GenMsgILSupport" BO_ 294 1;
+BA_ "GenMsgILSupport" BO_ 293 1;
+BA_ "GenMsgILSupport" BO_ 292 1;
+BA_ "GenMsgILSupport" BO_ 291 1;
+BA_ "GenMsgILSupport" BO_ 290 1;
+BA_ "GenMsgILSupport" BO_ 289 1;
+BA_ "GenMsgILSupport" BO_ 288 1;
+BA_ "GenSigSendType" SG_ 2027 CellVolDiff 7;
+BA_ "GenSigSendType" SG_ 2026 MinCellVolNo 7;
+BA_ "GenSigSendType" SG_ 2026 MinCellV 7;
+BA_ "GenSigSendType" SG_ 2026 MaxCellVolNo 7;
+BA_ "GenSigSendType" SG_ 2026 MaxCellV 7;
+BA_ "GenSigInactiveValue" SG_ 2026 MaxCellV 0;
+BA_ "GenSigSendType" SG_ 2026 AveCellVol 7;
+BA_ "GenSigSendType" SG_ 2024 UdsTxD7 7;
+BA_ "GenSigSendType" SG_ 2024 UdsTxD6 7;
+BA_ "GenSigSendType" SG_ 2024 UdsTxD5 7;
+BA_ "GenSigSendType" SG_ 2024 UdsTxD4 7;
+BA_ "GenSigSendType" SG_ 2024 UdsTxD3 7;
+BA_ "GenSigSendType" SG_ 2024 UdsTxD2 7;
+BA_ "GenSigSendType" SG_ 2024 UdsTxD1 7;
+BA_ "GenSigSendType" SG_ 2024 UdsTxCmd 7;
+BA_ "GenSigSendType" SG_ 2016 UdsRxD7 7;
+BA_ "GenSigSendType" SG_ 2016 UdsRxD6 7;
+BA_ "GenSigSendType" SG_ 2016 UdsRxD5 7;
+BA_ "GenSigSendType" SG_ 2016 UdsRxD4 7;
+BA_ "GenSigSendType" SG_ 2016 UdsRxD3 7;
+BA_ "GenSigSendType" SG_ 2016 UdsRxD2 7;
+BA_ "GenSigSendType" SG_ 2016 UdsRxD1 7;
+BA_ "GenSigSendType" SG_ 2016 UdsRxCmd 7;
+BA_ "GenSigSendType" SG_ 130 SycD4 7;
+BA_ "GenSigSendType" SG_ 130 SycD3 7;
+BA_ "GenSigSendType" SG_ 130 SycD2 7;
+BA_ "GenSigSendType" SG_ 130 SycD1 7;
+BA_ "GenSigSendType" SG_ 130 SycD0 7;
+BA_ "GenSigSendType" SG_ 772 RtcTxMulReqD4Sig 7;
+BA_ "GenSigSendType" SG_ 770 RtcTxMulReqD4Sig 7;
+BA_ "GenSigSendType" SG_ 770 RtcRxMulReqPGN 7;
+BA_ "GenSigSendType" SG_ 770 RtcRxMulReqCmd 7;
+BA_ "GenSigSendType" SG_ 770 RtcRxMulPackSum 7;
+BA_ "GenSigSendType" SG_ 770 RtcRxMulByteSum 7;
+BA_ "GenSigSendType" SG_ 771 RtcRxMulD7 7;
+BA_ "GenSigSendType" SG_ 771 RtcRxMulD6 7;
+BA_ "GenSigSendType" SG_ 771 RtcRxMulD5 7;
+BA_ "GenSigSendType" SG_ 771 RtcRxMulD4 7;
+BA_ "GenSigSendType" SG_ 771 RtcRxMulD3 7;
+BA_ "GenSigSendType" SG_ 771 RtcRxMulD2 7;
+BA_ "GenSigSendType" SG_ 771 RtcRxMulD1 7;
+BA_ "GenSigSendType" SG_ 771 RtcRxMulNo 7;
+BA_ "GenSigSendType" SG_ 768 RtcRxCmd 7;
+BA_ "GenSigSendType" SG_ 768 RtcRxD6 7;
+BA_ "GenSigSendType" SG_ 768 RtcRxD5 7;
+BA_ "GenSigSendType" SG_ 768 RtcRxD4 7;
+BA_ "GenSigSendType" SG_ 768 RtcRxD3 7;
+BA_ "GenSigSendType" SG_ 768 RtcRxD2 7;
+BA_ "GenSigSendType" SG_ 768 RtcRxD1 7;
+BA_ "GenSigSendType" SG_ 768 RtcRxD0 7;
+BA_ "GenSigSendType" SG_ 773 Cc2Vol 7;
+BA_ "GenSigSendType" SG_ 525 Mc60ATxErrCnt 7;
+BA_ "GenSigSendType" SG_ 144 BcuInit_D6 7;
+BA_ "GenSigSendType" SG_ 144 BcuInit_D5 7;
+BA_ "GenSigSendType" SG_ 144 BcuInit_D4 7;
+BA_ "GenSigSendType" SG_ 144 BcuInit_D3 7;
+BA_ "GenSigSendType" SG_ 144 BcuInit_D2 7;
+BA_ "GenSigSendType" SG_ 144 BcuInit_D1 7;
+BA_ "GenSigSendType" SG_ 144 BcuInit_McNo 7;
+BA_ "GenSigSendType" SG_ 144 BcuInit_Cmd 7;
+BA_ "GenSigSendType" SG_ 523 Mc60AStatLtc4 7;
+BA_ "GenSigSendType" SG_ 523 Mc60AStatLtc3 7;
+BA_ "GenSigSendType" SG_ 523 Mc60AStatLtc2 7;
+BA_ "GenSigSendType" SG_ 523 Mc60AStatLtc1 7;
+BA_ "GenSigSendType" SG_ 524 Mc60AStatLtc5 7;
+BA_ "GenSigSendType" SG_ 555 Mc33BStatLtc3 7;
+BA_ "GenSigSendType" SG_ 555 Mc33BStatLtc2 7;
+BA_ "GenSigSendType" SG_ 555 Mc33BStatLtc1 7;
+BA_ "GenSigSendType" SG_ 512 Mc60ACtrlLtc4 7;
+BA_ "GenSigSendType" SG_ 512 Mc60ACtrlLtc3 7;
+BA_ "GenSigSendType" SG_ 512 Mc60ACtrlLtc2 7;
+BA_ "GenSigSendType" SG_ 512 Mc60ACtrlLtc1 7;
+BA_ "GenSigSendType" SG_ 513 Mc60ACtrlLtc5 7;
+BA_ "GenSigSendType" SG_ 544 Mc33BCtrlLtc3 7;
+BA_ "GenSigSendType" SG_ 544 Mc33BCtrlLtc2 7;
+BA_ "GenSigSendType" SG_ 544 Mc33BCtrlLtc1 7;
+BA_ "GenSigSendType" SG_ 303 Mc60ATemp4 7;
+BA_ "GenSigSendType" SG_ 303 Mc60ATemp3 7;
+BA_ "GenSigSendType" SG_ 303 Mc60ATemp2 7;
+BA_ "GenSigSendType" SG_ 303 Mc60ATemp1 7;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 774 RtcHour 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 774 RtcYear 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 774 RtcWeek 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 774 RtcSec 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 774 RtcMonth 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 774 RtcMin 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 774 RtcDay 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 773 RtcSt 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 773 PwrVol 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 773 GprsVol 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 773 CcVol 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 773 CcPwmDt 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 773 Cc2Vol 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 525 Mc60AErrCounter 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 525 Mc60AErrCode 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 525 Mc60ASt 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 525 Mc60ACanErrDirect 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 525 Mc60ACanResets 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 525 Mc60ARxErrCnt 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 525 Mc60ATxErrCnt 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 525 Mc60AAveCellV 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 557 Mc33BErrCounter 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 557 Mc33BErrCode 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 557 Mc33BSt 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 557 Mc33BCanErrDirect 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 557 Mc33BCanResets 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 557 Mc33BRxErrCnt 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 557 Mc33BTxErrCnt 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 557 Mc33BAveCellV 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 523 Mc60AStatLtc4 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 523 Mc60AStatLtc3 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 523 Mc60AStatLtc2 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 523 Mc60AStatLtc1 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 524 Mc60AStatLtc5 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 555 Mc33BStatLtc3 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 555 Mc33BStatLtc2 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 555 Mc33BStatLtc1 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 1314 HV_Uact2_5 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 1314 HV_Uact2_4 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 1314 HV_Uact2_3 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 1314 HV_Uact2_2 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 303 Mc60ATemp4 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 303 Mc60ATemp3 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 303 Mc60ATemp2 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 303 Mc60ATemp1 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 271 Mc33BTemp4 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 271 Mc33BTemp3 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 271 Mc33BTemp2 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 271 Mc33BTemp1 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 1312 HcuSt 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 1312 HV_Uact1 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 1312 HV_Uact2 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 1312 Ipack 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 270 Ucell59 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 270 Ucell58 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 270 Ucell57 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 270 Ucell56 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 269 Ucell55 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 269 Ucell54 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 269 Ucell53 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 269 Ucell52 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 268 Ucell51 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 268 Ucell50 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 268 Ucell49 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 268 Ucell48 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 267 Ucell47 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 267 Ucell46 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 267 Ucell45 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 267 Ucell44 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 266 Ucell43 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 266 Ucell42 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 266 Ucell41 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 266 Ucell40 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 265 Ucell39 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 265 Ucell38 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 265 Ucell37 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 265 Ucell36 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 264 Ucell35 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 264 Ucell34 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 264 Ucell33 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 264 Ucell32 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 263 Ucell31 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 263 Ucell30 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 263 Ucell29 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 263 Ucell28 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 262 Ucell27 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 262 Ucell26 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 262 Ucell25 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 262 Ucell24 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 261 Ucell23 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 261 Ucell22 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 261 Ucell21 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 261 Ucell20 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 260 Ucell19 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 260 Ucell18 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 260 Ucell17 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 260 Ucell16 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 259 Ucell15 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 259 Ucell14 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 259 Ucell13 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 259 Ucell12 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 258 Ucell11 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 258 Ucell10 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 258 Ucell09 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 258 Ucell08 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 257 Ucell07 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 257 Ucell06 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 257 Ucell05 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 257 Ucell04 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 256 Ucell03 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 256 Ucell02 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 256 Ucell01 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 256 Ucell00 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 296 Ucell92 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 295 Ucell91 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 295 Ucell90 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 295 Ucell89 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 295 Ucell88 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 294 Ucell87 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 294 Ucell86 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 294 Ucell85 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 294 Ucell84 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 293 Ucell83 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 293 Ucell82 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 293 Ucell81 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 293 Ucell80 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 292 Ucell79 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 292 Ucell78 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 292 Ucell77 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 292 Ucell76 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 291 Ucell75 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 291 Ucell74 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 291 Ucell73 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 291 Ucell72 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 290 Ucell71 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 290 Ucell70 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 290 Ucell69 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 290 Ucell68 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 289 Ucell67 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 289 Ucell66 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 289 Ucell65 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 289 Ucell64 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 288 Ucell63 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 288 Ucell62 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 288 Ucell61 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ Bcu SG_ 288 Ucell60 1000;
+
